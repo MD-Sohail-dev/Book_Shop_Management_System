@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.AreaChart?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="564.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.dashboardController">
+   <children>
+      <Pane fx:id="main_form" prefHeight="585.0" prefWidth="1000.0">
+         <children>
+            <ImageView fitHeight="575.0" fitWidth="1000.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../pexels-rostislav-uzunov-5011647.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="86.0" fitWidth="112.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../Double-J-Design-Ravenna-3d-Book.256.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="109.0" layoutY="22.0" prefHeight="39.0" prefWidth="646.0" text="Book Shop Management System" textFill="WHITE">
+               <font>
+                  <Font name="Arial Narrow Bold Italic" size="48.0" />
+               </font>
+            </Label>
+            <Button fx:id="close" layoutX="951.0" layoutY="14.0" mnemonicParsing="false" onAction="#close" text="X" textFill="#dc0732">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="minimize" layoutX="911.0" layoutY="14.0" mnemonicParsing="false" onAction="#minimize" text="-" textFill="#0b1cdc">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="dashboard_btn" layoutX="78.0" layoutY="240.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="25.0" prefWidth="99.0" text="DashBoard" />
+            <Button fx:id="availableBooks_btn" layoutX="78.0" layoutY="337.0" mnemonicParsing="false" onAction="#switchForm" text="Available Books" />
+            <Button fx:id="purchase_btn" layoutX="78.0" layoutY="425.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="25.0" prefWidth="99.0" text="Purchase" />
+            <Button fx:id="logout" layoutX="10.0" layoutY="536.0" mnemonicParsing="false" onAction="#logout" prefHeight="25.0" prefWidth="60.0" text="Log Out" />
+            <ImageView fitHeight="55.0" fitWidth="86.0" layoutX="12.0" layoutY="225.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../Mcdo-Design-Cats-Dashboard-Folder-smooth.128.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="55.0" fitWidth="55.0" layoutX="12.0" layoutY="322.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../Google-Noto-Emoji-Objects-62863-books.512.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="40.0" fitWidth="49.0" layoutX="23.0" layoutY="418.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../Aha-Soft-Business-Toolbar-Payment.48.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="55.0" fitWidth="55.0" layoutX="15.0" layoutY="483.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../Flameia-The-Rabbit-Is-Back-Go-to-Work.256.png" />
+               </image>
+            </ImageView>
+            <AnchorPane fx:id="dashboard_form" layoutX="191.0" layoutY="79.0" prefHeight="486.0" prefWidth="810.0" visible="false">
+               <children>
+                  <Pane layoutX="-1.0" prefHeight="486.0" prefWidth="820.0">
+                     <children>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="23.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../—Pngtree—blue%20or%20red%20glowing%20neon_8473069.jpg" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="323.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../—Pngtree—blue%20or%20red%20glowing%20neon_8473069.jpg" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="594.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../—Pngtree—blue%20or%20red%20glowing%20neon_8473069.jpg" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="61.0" layoutY="66.0" text="Available Books" textFill="#f4efef">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="dashboard_AB" layoutX="180.0" layoutY="6.0" prefHeight="35.0" prefWidth="31.0" text="0" textFill="#f4efef">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="358.0" layoutY="66.0" text="Total Income" textFill="#f4efef">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="633.0" layoutY="66.0" text="Total Customer" textFill="#f4efef">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="dashboard_TI" contentDisplay="RIGHT" layoutX="394.0" layoutY="19.0" prefHeight="35.0" prefWidth="114.0" text="0" textFill="#f4efef">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="dashboard_TC" layoutX="767.0" layoutY="6.0" text="0" textFill="#f4efef">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="55.0" fitWidth="44.0" layoutX="39.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../Tatice-Cristal-Intense-Ok.256.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="55.0" fitWidth="76.0" layoutX="342.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../Designcontest-Ecommerce-Business-Dollar.256.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="44.0" fitWidth="44.0" layoutX="618.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../Icojam-Blue-Bits-Users.256.png" />
+                           </image>
+                        </ImageView>
+                        <AnchorPane layoutX="76.0" layoutY="121.0" prefHeight="365.0" prefWidth="334.0">
+                           <children>
+                              <AreaChart fx:id="dashboard_incomeChart" layoutX="-5.0" layoutY="13.0" opacity="0.67" prefHeight="371.0" prefWidth="334.0" AnchorPane.bottomAnchor="-18.600000000000023" AnchorPane.leftAnchor="-5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="13.0">
+                                <xAxis>
+                                  <CategoryAxis side="BOTTOM" />
+                                </xAxis>
+                                <yAxis>
+                                  <NumberAxis side="LEFT" tickLabelFill="WHITE" />
+                                </yAxis>
+                              </AreaChart>
+                              <Label layoutX="88.0" layoutY="-1.0" text="Income Chart Data" textFill="WHITE">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="451.0" layoutY="107.0" prefHeight="365.0" prefWidth="334.0">
+                           <children>
+                              <BarChart fx:id="dashboard_customerChart" layoutY="26.0" opacity="0.67" prefHeight="371.0" prefWidth="334.0" AnchorPane.bottomAnchor="-31.600000000000023" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="26.0">
+                                <xAxis>
+                                  <CategoryAxis side="BOTTOM" />
+                                </xAxis>
+                                <yAxis>
+                                  <NumberAxis side="LEFT" tickLabelFill="WHITE" />
+                                </yAxis>
+                              </BarChart>
+                              <Label layoutX="99.0" layoutY="14.0" text="Customers Chart Data" textFill="WHITE">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </children></Pane>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="availableBooks_form" layoutX="184.0" layoutY="85.0" prefHeight="476.0" prefWidth="819.0">
+               <children>
+                  <Pane layoutX="95.0" layoutY="68.0" prefHeight="476.0" prefWidth="819.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <AnchorPane layoutX="5.0" layoutY="3.0" prefHeight="476.0" prefWidth="363.0">
+                           <children>
+                              <Pane prefHeight="476.0" prefWidth="370.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <ImageView fx:id="availableBooks_imageView" fitHeight="71.0" fitWidth="230.0" layoutX="54.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" />
+                                    <Button fx:id="availableBooks_importBtn" layoutX="109.0" layoutY="56.0" mnemonicParsing="false" onAction="#avaialableBooksInsertImage" prefHeight="27.0" prefWidth="114.0" text="Import" />
+                                    <Label layoutX="11.0" layoutY="111.0" prefHeight="27.0" prefWidth="86.0" text="Book ID :-" textFill="#faf3f3">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="availableBooks_bookID" layoutX="96.0" layoutY="112.0" prefHeight="25.0" prefWidth="243.0" />
+                                    <Label layoutX="-3.0" layoutY="158.0" prefHeight="27.0" prefWidth="99.0" text="Book Title :-" textFill="#faf3f3">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="availableBooks_bookTitle" layoutX="96.0" layoutY="159.0" prefHeight="25.0" prefWidth="243.0" />
+                                    <Label layoutX="16.0" layoutY="210.0" prefHeight="27.0" prefWidth="76.0" text="Author :-" textFill="#faf3f3">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="availableBooks_author" layoutX="96.0" layoutY="211.0" prefHeight="25.0" prefWidth="243.0" />
+                                    <Label layoutX="14.0" layoutY="263.0" prefHeight="27.0" prefWidth="76.0" text="Genre :-" textFill="#faf3f3">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="availableBooks_genre" layoutX="96.0" layoutY="264.0" prefHeight="25.0" prefWidth="243.0" />
+                                    <Label layoutX="11.0" layoutY="307.0" prefHeight="27.0" prefWidth="149.0" text="Published Date :-" textFill="#faf3f3">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <DatePicker fx:id="availableBooks_date" layoutX="156.0" layoutY="308.0" prefHeight="25.0" prefWidth="200.0" />
+                                    <Label layoutX="29.0" layoutY="350.0" prefHeight="27.0" prefWidth="76.0" text="Price:-" textFill="#faf3f3">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="availableBooks_price" layoutX="98.0" layoutY="351.0" prefHeight="25.0" prefWidth="243.0" promptText="\$0.0" />
+                                    <Button fx:id="availableBooks_addBtn" layoutX="100.0" layoutY="390.0" mnemonicParsing="false" onAction="#availableBooksAdd" prefHeight="27.0" prefWidth="86.0" text="ADD" />
+                                    <Button fx:id="availableBooks_updateBtn" layoutX="249.0" layoutY="390.0" mnemonicParsing="false" onAction="#availableBooksUpdate" prefHeight="27.0" prefWidth="86.0" text="UPDATE" />
+                                    <Button layoutX="100.0" layoutY="430.0" mnemonicParsing="false" onAction="#availableBooksClear" prefHeight="27.0" prefWidth="86.0" text="CLEAR" />
+                                    <Button fx:id="availableBooks_deleteBtn" layoutX="249.0" layoutY="430.0" mnemonicParsing="false" onAction="#availableBooksDelete" prefHeight="27.0" prefWidth="86.0" text="DELETE" />
+                                 </children>
+                              </Pane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="379.0" layoutY="4.0" prefHeight="469.0" prefWidth="432.0">
+                           <children>
+                              <Pane layoutX="-15.2" layoutY="57.0" prefHeight="469.0" prefWidth="446.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-15.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <TextField fx:id="availableBooks_search" layoutX="55.0" layoutY="8.0" onKeyTyped="#availableBooksSeach" prefHeight="25.0" prefWidth="286.0" promptText="     Search">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </TextField>
+                                    <ImageView fitHeight="18.0" fitWidth="31.0" layoutX="64.0" layoutY="14.0" opacity="0.31" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../../Hopstarter-Gloss-Mac-Zoom.512.png" />
+                                       </image>
+                                    </ImageView>
+                                    <TableView fx:id="availableBooks_tableView" layoutX="-3.0" layoutY="47.0" onMouseClicked="#availableBooksSelect" prefHeight="418.0" prefWidth="446.0">
+                                      <columns>
+                                        <TableColumn fx:id="availableBooks_col_bookID" prefWidth="56.800048828125" text=" Book ID " />
+                                        <TableColumn fx:id="availableBooks_col_bookTitle" prefWidth="81.59997177124023" text="Book Title" />
+                                          <TableColumn fx:id="availableBooks_col_author" prefWidth="70.4000244140625" text="Author" />
+                                          <TableColumn fx:id="availableBooks_col_genre" prefWidth="84.79994201660156" text="Genre" />
+                                          <TableColumn fx:id="availableBooks_col_date" minWidth="7.2000732421875" prefWidth="95.2000732421875" text="Published Date" />
+                                          <TableColumn fx:id="availableBooks_col_price" prefWidth="52.0" text="Price" />
+                                      </columns>
+                                    </TableView>
+                                 </children></Pane>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </Pane>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="purchase_form" layoutX="190.0" layoutY="90.0" prefHeight="476.0" prefWidth="810.0" visible="false">
+               <children>
+                  <Pane layoutX="135.0" layoutY="128.0" prefHeight="476.0" prefWidth="810.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <AnchorPane prefHeight="476.0" prefWidth="810.0">
+                           <children>
+                              <Pane layoutX="282.0" layoutY="74.0" prefHeight="476.0" prefWidth="810.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <AnchorPane prefHeight="167.0" prefWidth="810.0">
+                                       <children>
+                                          <Pane prefHeight="174.0" prefWidth="810.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <children>
+                                                <Label layoutX="15.0" layoutY="8.0" text="Book ID" textFill="#fcfafa">
+                                                   <font>
+                                                      <Font name="System Bold" size="16.0" />
+                                                   </font>
+                                                </Label>
+                                                <ComboBox fx:id="purchase_bookID" layoutX="94.0" layoutY="8.0" onAction="#purchaseBookId" prefWidth="150.0" promptText="Choose" />
+                                                <Label layoutX="7.0" layoutY="51.0" text="Book Title" textFill="#fcfafa">
+                                                   <font>
+                                                      <Font name="System Bold" size="16.0" />
+                                                   </font>
+                                                </Label>
+                                                <ComboBox fx:id="purchase_bookTitle" layoutX="94.0" layoutY="51.0" onAction="#purchaseBookTitle" prefWidth="150.0" promptText="Choose" />
+                                                <Button fx:id="purchase_addBtn" layoutX="306.0" layoutY="21.0" mnemonicParsing="false" onAction="#purchaseAdd" prefHeight="30.0" prefWidth="99.0" text="ADD" textFill="#1000ef">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Button>
+                                                <AnchorPane layoutX="418.0" prefHeight="167.0" prefWidth="392.0">
+                                                   <children>
+                                                      <Pane layoutX="14.0" layoutY="-6.0" prefHeight="194.0" prefWidth="363.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                         <children>
+                                                            <Label layoutX="84.0" layoutY="14.0" text="Book ID :-" textFill="WHITE">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label fx:id="purchase_info_bookID" layoutX="156.0" layoutY="15.0" prefHeight="17.0" prefWidth="191.0" textFill="WHITE">
+                                                               <font>
+                                                                  <Font name="System Bold Italic" size="12.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label layoutX="72.0" layoutY="45.0" text="Book Title :-" textFill="WHITE">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label fx:id="purchase_info_bookTitle" layoutX="156.0" layoutY="47.0" prefHeight="17.0" prefWidth="191.0" textFill="WHITE">
+                                                               <font>
+                                                                  <Font name="System Bold Italic" size="12.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label layoutX="90.0" layoutY="73.0" text="Author :-" textFill="WHITE">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label fx:id="purchase_info_author" layoutX="156.0" layoutY="75.0" prefHeight="17.0" prefWidth="191.0" textFill="WHITE">
+                                                               <font>
+                                                                  <Font name="System Bold Italic" size="12.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label layoutX="96.0" layoutY="101.0" text="Genre :-" textFill="WHITE">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label fx:id="purchase_info_genre" layoutX="156.0" layoutY="102.0" prefHeight="17.0" prefWidth="191.0" textFill="WHITE">
+                                                               <font>
+                                                                  <Font name="System Bold Italic" size="12.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label layoutX="39.0" layoutY="133.0" prefHeight="20.0" prefWidth="114.0" text="Published Date :-" textFill="WHITE">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label fx:id="purchase_info_date" layoutX="156.0" layoutY="135.0" prefHeight="17.0" prefWidth="191.0" textFill="WHITE">
+                                                               <font>
+                                                                  <Font name="System Bold Italic" size="12.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </Pane>
+                                                   </children>
+                                                </AnchorPane>
+                                                <Button fx:id="purchase_payBtn" layoutX="7.0" layoutY="135.0" mnemonicParsing="false" onAction="#purchasePay" prefHeight="30.0" prefWidth="76.0" text="PAY">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Button>
+                                                <Label layoutX="96.0" layoutY="135.0" text=" Total :-" textFill="#f2ebeb">
+                                                   <font>
+                                                      <Font name="System Bold Italic" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="purchase_total" layoutX="176.0" layoutY="135.0" prefHeight="27.0" prefWidth="95.0" text="\$0.0" textFill="#f2ebeb">
+                                                   <font>
+                                                      <Font name="System Bold Italic" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label layoutX="12.0" layoutY="89.0" text="Quantity" textFill="#fcfafa">
+                                                   <font>
+                                                      <Font name="System Bold" size="16.0" />
+                                                   </font>
+                                                </Label>
+                                                <Spinner fx:id="purchase_quantity" layoutX="95.0" layoutY="95.0" onMouseClicked="#purchaseQty" />
+                                             </children>
+                                          </Pane>
+                                       </children>
+                                    </AnchorPane>
+                                    <TableView fx:id="purchase_tableView" layoutY="191.0" prefHeight="280.0" prefWidth="804.0">
+                                      <columns>
+                                        <TableColumn fx:id="purchase_col_bookID" prefWidth="131.99998474121094" text="Book ID" />
+                                        <TableColumn fx:id="purchase_col_bookTitle" prefWidth="135.20001220703125" text="Book Title" />
+                                          <TableColumn fx:id="purchase_col_author" prefWidth="122.39996337890625" text="Author" />
+                                          <TableColumn fx:id="purchase_col_genre" prefWidth="139.99993896484375" text="Genre" />
+                                          <TableColumn fx:id="purchase_col_quantity" prefWidth="148.79998779296875" text="Quantity" />
+                                          <TableColumn fx:id="purchase_col_price" prefWidth="127.2000732421875" text="Price ($)" />
+                                      </columns>
+                                    </TableView>
+                                 </children>
+                              </Pane>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </Pane>
+               </children>
+            </AnchorPane>
+            <ImageView fitHeight="86.0" fitWidth="114.0" layoutX="24.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../OneDrive/Pictures/icon.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="username" layoutX="45.0" layoutY="185.0" prefHeight="17.0" prefWidth="66.0" text="username" textFill="WHITE">
+               <font>
+                  <Font name="Bernard MT Condensed" size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</StackPane>
